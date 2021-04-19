@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adventure</title>
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .scroller {
+        overflow: auto;
+        flex: 1;
+        scroll-snap-type: y proximity;
+      }
+      .content {
+        padding-top: 100vh;
+        margin: 8px;
+      }
+      .snap {
+        scroll-snap-align: center;
+        height: 0;
+      }
+    </style>
+    <script src="client.js"></script>
+  </head>
+  <body>
+    <div class="scroller">
+      <div class="content"></div>
+      <div class="snap"></div>
+    </div>
+    <input>
+  </body>
+</html>

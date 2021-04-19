@@ -1,0 +1,12 @@
+{
+  "name": "adventure",
+  "version": "0.0.1",
+  "description": "A multiplayer text adventure system",
+  "respository": "",
+  "author": "Robert Flack <flackr@gmail.com>",
+  "dependencies": {
+    "finalhandler": "^1.1.2",
+    "serve-static": "^1.14.1",
+    "ws": "^7.4.4"
+  }
+}
