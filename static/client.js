@@ -4,7 +4,7 @@ function init() {
   let input = document.querySelector('input');
   let scroller = document.querySelector('.scroller');
   let content = document.querySelector('.content');
-  let socket = new WebSocket('wss://flack.undo.it/adventure/game');
+  let socket = new WebSocket(location.origin.replace(/^http/, 'ws') + location.pathname + 'game');
   scroller.scrollTop = scroller.scrollHeight;
   socket.addEventListener('message', onMessage);
   input.addEventListener('keypress', onKeyPress);

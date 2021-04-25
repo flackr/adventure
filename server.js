@@ -130,6 +130,7 @@ class Server {
       room: '',
     };
     this._clients[name] = websocket;
+    this.showHelp(name)
     this.enter(name, entryRoom);
   }
 
@@ -198,6 +199,7 @@ class Server {
 
     let process = (command) => {
       let action = splitWords(command, 2);
+      action[0] = action[0].toLowerCase();
 
       // " or say [message]
       if (command.startsWith('"') || action[0] == 'say') {
@@ -212,19 +214,19 @@ class Server {
         return;
       }
 
-      if (action[0] == 'help') {
-        this.showHelp(name, action[1]);
-        return;
-      }
-
       let direction = null;
       if (command in directions) {
         direction = directions[command];
       } else if (action[0] == 'go') {
         direction = directions[action[1]] || action[1];
       }
-      if (direction)
+      if (direction) {
         this.move(name, direction);
+        return;
+      }
+
+      //if (action[0] == 'help') {
+      this.showHelp(name, action[1]);
     };
 
     websocket.on('message', (message) => {
